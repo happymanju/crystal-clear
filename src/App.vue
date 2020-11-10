@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-       
-   <navbar />
-   <home />
-  
+    <navbar />
+    <home />
   </div>
 </template>
 
@@ -11,21 +9,23 @@
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
-
 export default {
-  name: 'App',
+  name: "App",
   components: {
     navbar: Navbar,
-    home:Home,
-
-  }
-}
+    home: Home,
+  },
+};
 </script>
 
 <style>
-body, html {
-  margin:0;
+body,
+html {
+  background-color: blue;
+  padding: 0;
+  margin: 0;
 }
-
-
+#app {
+  display: grid;
+}
 </style>

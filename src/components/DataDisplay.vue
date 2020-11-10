@@ -1,17 +1,13 @@
 <template>
-
-    <div>
-       Data Displau
-    </div>
-    
+  <div>
+    Data Display
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'DataDisplay',
-}
+  name: "DataDisplay",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
