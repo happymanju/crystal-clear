@@ -1,21 +1,13 @@
 <template>
-
-    <div>
-      LeaderBoard
-    </div>
-    
+  <div>
+    LeaderBoard
+  </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'LeaderBoard',
-  
-
-}
+  name: "LeaderBoard",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
