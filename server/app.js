@@ -23,18 +23,18 @@ async function fetchTaps(coordinate) {
     }
 }
 
-async function fetchTapsPG() {
-    const taps = await db.select().table("taps");
-    console.log(taps);
-};
+// async function fetchTapsPG() {
+//     const taps = await db.select().table("taps");
+//     console.log(taps);
+// };
 
-(async () => {
-    try {
-        const res = await fetchTapsPG();
-    } catch (err) {
-        console.error(err);
-    }
-})();
+// async () => {
+//     try {
+//         const res = await fetchTapsPG();
+//     } catch (err) {
+//         console.error(err);
+//     }
+// };
 
 app.get("/express/radius", async (req, res) => {
     const query = req.query;
