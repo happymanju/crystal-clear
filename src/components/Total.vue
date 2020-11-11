@@ -4,7 +4,7 @@
     <div class="total-wrapper">
       <graph class="total-item" />
       <totalCompare class="total-item" />
-      <categoryGraph class="total-item" />
+      <categoryGraph v-bind:categories="categories" class="total-item" />
     </div>
   </div>
 </template>
@@ -33,9 +33,17 @@ export default {
     async getCatgories() {
       await axios.get("/express/radius").then((data) => {
         console.log(data.data);
-        arrayOfIds = data.data;
-        for (let id of arrayOfIds) {
-        }
+        let arrayOfIds = data.data;
+        let countedCategories = arrayOfIds.reduce((tally, id) => {
+          if (!tally[id]) {
+            tally[id] = 1;
+          } else {
+            tally[id] = tally[id] + 1;
+          }
+          return tally;
+        }, {});
+        this.categories = countedCategories;
+        console.log(this.categories);
       });
     },
   },
