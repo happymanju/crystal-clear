@@ -10,7 +10,7 @@ export default {
     this.renderChart({
       labels: [
         "Not classified",
-        "Natural Springs",
+        "Spring Water",
         "Public",
         "Open Maps",
         "Private",
