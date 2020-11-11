@@ -2,7 +2,7 @@
   <div class="total-container">
     <h2>Total Area</h2>
     <div class="total-wrapper">
-      <graph class="total-item" />
+      <line-chart class="total-item"></line-chart>
       <totalCompare class="total-item" />
       <categoryGraph class="total-item" />
     </div>
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import Graph from "./Graph.vue";
+import LineChart from "./LineChart";
 import TotalCompare from "./TotalCompare";
 import CategoryGraph from "./CategoryGraph";
-import axios from "axios";
+//import axios from "axios";
 export default {
   name: "Total",
   components: {
-    graph: Graph,
+    LineChart,
     totalCompare: TotalCompare,
     categoryGraph: CategoryGraph,
   },
@@ -30,14 +30,14 @@ export default {
     this.getCatgories();
   },
   methods: {
-    async getCatgories() {
-      await axios.get("/express/radius").then((data) => {
-        console.log(data.data);
-        arrayOfIds = data.data;
-        for (let id of arrayOfIds) {
-        }
-      });
-    },
+    // async getCatgories() {
+    //   await axios.get("/express/radius").then((data) => {
+    //     console.log(data.data);
+    //     arrayOfIds = data.data;
+    //     for (let id of arrayOfIds) {
+    //     }
+    //   });
+    // },
   },
 };
 </script>
@@ -48,12 +48,13 @@ export default {
 }
 .total-wrapper {
   display: grid;
-  background-color: yellow;
+  background-color: white;
   grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
   grid-gap: 20px;
 }
 .total-item {
   display: flex;
+  flex-flow: row wrap;
   border: 1px solid red;
   border-radius: 5px;
   padding: 10px;
