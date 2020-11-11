@@ -17,7 +17,7 @@ export default {
       ],
       datasets: [
         {
-          label: "Spots in Shibuya",
+          label: "Spots Around Akasaka",
           backgroundColor: "Blue",
           data: [40, 20, 12, 80, 20, 20],
         },
