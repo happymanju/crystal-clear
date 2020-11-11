@@ -12,7 +12,7 @@ export default {
         {
           label: "Data One",
           backgroundColor: "Blue",
-          data: [40, 20, 60, 10, 50, 45]
+          data: [70, 1916, 3018, 3160, 2527, 2470]
         }
       ]
     }, {
