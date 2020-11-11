@@ -21,14 +21,21 @@ export default {
     totalCompare: TotalCompare,
     categoryGraph: CategoryGraph,
   },
+  data: () => ({
+    categories: [],
+  }),
+
   mounted() {
-    console.log("!mounted");
+    console.log("mounted");
     this.getCatgories();
   },
   methods: {
     async getCatgories() {
       await axios.get("/express/radius").then((data) => {
         console.log(data.data);
+        arrayOfIds = data.data;
+        for (let id of arrayOfIds) {
+        }
       });
     },
   },
