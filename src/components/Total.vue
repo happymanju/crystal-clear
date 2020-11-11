@@ -13,13 +13,24 @@
 import Graph from "./Graph.vue";
 import TotalCompare from "./TotalCompare";
 import CategoryGraph from "./CategoryGraph";
-
+import axios from "axios";
 export default {
   name: "Total",
   components: {
     graph: Graph,
     totalCompare: TotalCompare,
     categoryGraph: CategoryGraph,
+  },
+  mounted() {
+    console.log("!mounted");
+    this.getCatgories();
+  },
+  methods: {
+    async getCatgories() {
+      await axios.get("/express/radius").then((data) => {
+        console.log(data.data);
+      });
+    },
   },
 };
 </script>
