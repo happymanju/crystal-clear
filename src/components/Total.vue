@@ -1,10 +1,9 @@
 <template>
-  <div class="total-container">
-    <h2>Total Area</h2>
-    <div class="total-wrapper">
-      <line-chart class="total-item"></line-chart>
-      <totalCompare class="total-item" />
-      <div class="total-item">
+  <div class="container">
+    <div class="wrapper">
+      <line-chart class="item"></line-chart>
+      <totalCompare class="item" />
+      <div class="item">
         <input
           v-model="userLoc"
           placeholder="Enter Location"
@@ -19,8 +18,6 @@
 </template>
 
 <script>
-//Google Maps
-
 import LineChart from "./LineChart";
 import TotalCompare from "./TotalCompare";
 import CategoryGraph from "./CategoryGraph";
@@ -94,12 +91,12 @@ export default {
           {
             label: this.pickedName,
             backgroundColor: [
-              "rgb(255, 148, 120)",
-              "rgba(0, 181, 204, 1)",
-              "rgba(65, 131, 215, 1)",
-              "rgba(83, 51, 237, 1)",
-              "rgba(252, 185, 65, 1)",
-              "rgba(145, 61, 136, 1)",
+              "#2E98D1",
+              "#E5E5E7",
+              "#2D383F",
+              "#7BA4B8",
+              "#DFEEF5",
+              "#3F6A88",
             ],
             borderColor: "rgba(58, 83, 155, 1)",
             borderWidth: 1,
@@ -118,7 +115,6 @@ export default {
     setUserLoc() {
       this.picked = this.searchLoc;
     },
-
     async getCategories() {
       let result = await axios.get("/express/radius", {
         params: {
@@ -150,66 +146,12 @@ export default {
           {
             label: this.pickedName,
             backgroundColor: [
-              "rgb(255, 148, 120)",
-              "rgba(0, 181, 204, 1)",
-              "rgba(65, 131, 215, 1)",
-              "rgba(83, 51, 237, 1)",
-              "rgba(252, 185, 65, 1)",
-              "rgba(145, 61, 136, 1)",
-            ],
-            borderColor: "rgba(58, 83, 155, 1)",
-            borderWidth: 1,
-            data: [
-              this.categories["0"],
-              this.categories["1"],
-              this.categories["2"],
-              this.categories["3"],
-              this.categories["4"],
-              this.categories["5"],
-            ],
-          },
-        ],
-      };
-    },
-
-    async setLocation() {
-      let result = await axios.get("/express/radius", {
-        params: {
-          latitude: this.picked.coords[0],
-          longitude: this.picked.coords[1],
-          radius: 2000,
-        },
-      });
-      let arrayOfIds = result.data;
-      let countedCategories = arrayOfIds.reduce((tally, id) => {
-        if (!tally[id]) {
-          tally[id] = 1;
-        } else {
-          tally[id] = tally[id] + 1;
-        }
-        return tally;
-      }, {});
-      this.categories = countedCategories;
-      this.pickedName = this.picked.name;
-      this.datacollection = {
-        labels: [
-          "Not classified",
-          "Spring Water",
-          "Public",
-          "Open Maps",
-          "Private",
-          "verification-pending",
-        ],
-        datasets: [
-          {
-            label: this.pickedName,
-            backgroundColor: [
-              "rgb(255, 148, 120)",
-              "rgba(0, 181, 204, 1)",
-              "rgba(65, 131, 215, 1)",
-              "rgba(83, 51, 237, 1)",
-              "rgba(252, 185, 65, 1)",
-              "rgba(145, 61, 136, 1)",
+              "#2E98D1",
+              "#E5E5E7",
+              "#2D383F",
+              "#7BA4B8",
+              "#DFEEF5",
+              "#3F6A88",
             ],
             borderColor: "rgba(58, 83, 155, 1)",
             borderWidth: 1,
@@ -228,5 +170,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

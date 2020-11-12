@@ -17,9 +17,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.home-wrapper {
-  display: grid;
-}
-</style>
