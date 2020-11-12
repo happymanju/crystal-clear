@@ -24,7 +24,7 @@
 import LineChart from "./LineChart";
 import TotalCompare from "./TotalCompare";
 import CategoryGraph from "./CategoryGraph";
-import axios from "axios";
+//import axios from "axios";
 export default {
   name: "Total",
   components: {
@@ -181,7 +181,7 @@ export default {
 }
 .total-wrapper {
   display: grid;
-  background-color: yellow;
+  background-color: white;
   grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
   align-items: center;
   grid-gap: 20px;
@@ -189,6 +189,7 @@ export default {
 .total-item {
   flex-direction: column;
   display: flex;
+  flex-flow: row wrap;
   border: 1px solid red;
   border-radius: 5px;
   padding: 10px;
