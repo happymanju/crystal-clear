@@ -24,7 +24,7 @@
 import LineChart from "./LineChart";
 import TotalCompare from "./TotalCompare";
 import CategoryGraph from "./CategoryGraph";
-//import axios from "axios";
+import axios from "axios";
 export default {
   name: "Total",
   components: {
@@ -33,7 +33,7 @@ export default {
     categoryGraph: CategoryGraph,
   },
   data: () => ({
-    categories: { "0": 0, "1": 0, "2": 9, "3": 0, "4": 0, "5": 0 },
+    categories: { 0: 0, 1: 0, 2: 9, 3: 0, 4: 0, 5: 0 },
     picked: "picked",
     pickedName: "Shibuya",
     locations: [
