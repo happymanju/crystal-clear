@@ -3,7 +3,7 @@
     <h>LeaderBoard</h>
     <ol>
       <li v-for="item in rankArr" :key="item[0]">
-        {{ item[0] }} {{ item[1] }} litters
+        {{ item[0] }} {{ item[1] }} liters
       </li>
     </ol>
   </div>
