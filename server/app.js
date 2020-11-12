@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const axios = require("axios");
 const db = require("./knex.js");
+const { Pool, Client } = require("pg");
 
 async function fetchTaps(coordinate) {
   const url =
@@ -24,41 +25,21 @@ async function fetchTaps(coordinate) {
   }
 }
 
-// async function fetchTapsPG() {
-//   const taps = await db.select().table("users");
-//   console.log(taps);
-// }
-
-// (async () => {
-//   try {
-//     const res = await db.select().table("taps");
-//     console.log(res);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// })();
-
-// const { Pool, Client } = require("pg");
-// const connectionString = process.env.DB_URL;
-// const pool = new Pool({
-//   connectionString,
-// });
-// pool.query(
-//   "SELECT * FROM taps WHERE created_at >= (CURRENT_DATE - '7 days'::INTERVAL )",
-//   (err, res) => {
-//     console.log(err, res.rows);
-//     pool.end();
-//   }
-// );
-
-// const client = new Client({
-//   connectionString,
-// });
-// client.connect();
-// client.query("SELECT * FROM users", (err, res) => {
-//   console.log(err, res);
-//   client.end();
-// });
+app.get("/express/taps", async (req, res) => {
+  const { days } = req.query;
+  const connectionString = process.env.DB_URL;
+  const pool = new Pool({
+    connectionString,
+  });
+  const result = await pool
+    .query(
+      `SELECT COUNT(*) FROM taps WHERE created_at >= (CURRENT_DATE - '${days} days'::INTERVAL )`
+    )
+    .then((res) => res.rows)
+    .catch((err) => console.error(err));
+  pool.end();
+  res.send(result);
+});
 
 app.get("/express/leaderboard", async (req, res) => {
   const result = await db.select().table("refills");

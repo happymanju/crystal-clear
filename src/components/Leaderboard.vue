@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h>LeaderBoard</h>
+    <div>LeaderBoard</div>
     <ol>
       <li v-for="item in rankArr" :key="item[0]">
         {{ item[0] }} {{ item[1] }} liters
@@ -17,7 +17,7 @@ export default {
   data: () => ({
     rankArr: [],
   }),
-  mounted: async function () {
+  mounted: async function() {
     const res = await axios.get("/express/leaderboard");
     this.rankArr = res.data;
   },
