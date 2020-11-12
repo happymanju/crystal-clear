@@ -1,17 +1,16 @@
 const fs = require("fs");
 
-
 function makeSeed() {
   const refills = JSON.parse(fs.readFileSync(__dirname + "/output.json"));
   return refills;
 }
 
-
-exports.seed = function (knex) {
+exports.seed = function(knex) {
   const refills = makeSeed();
   // Deletes ALL existing entries
-  return knex('refills').del()
-    .then(function () {
+  return knex("refills")
+    .del()
+    .then(function() {
       // Inserts seed entries
       try {
         let newRefills = [];
@@ -26,13 +25,13 @@ exports.seed = function (knex) {
             user_id,
             category,
             amount,
-            date
+            date,
           });
         }
-        const test = newRefills.slice(0, 13107);
+        const test = newRefills.slice(0, 9000);
         return knex("refills").insert(test);
       } catch (err) {
-        console.error("Error seeding records:\n", err.message)
+        console.error("Error seeding records:\n", err.message);
       }
     });
 };
