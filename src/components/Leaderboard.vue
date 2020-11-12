@@ -19,7 +19,6 @@ export default {
   }),
   mounted: async function () {
     const res = await axios.get("/express/leaderboard");
-    console.log(res.data);
     this.rankArr = res.data;
   },
 };
