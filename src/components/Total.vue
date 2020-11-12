@@ -7,19 +7,11 @@
       <div class="total-item">
         <input
           v-model="userLoc"
-          placeholder="enter lcoation"
+          placeholder="Enter Location"
           v-on:change="setUserLoc"
         />
         <button v-on:click="getLocationcoord">SEARCH</button>
-        <div
-          v-on:change="setLocation"
-          v-for="location in locations"
-          :key="location.name"
-        >
-          <input type="radio" :value="location" v-model="picked" />
-          <label for="location.name">{{ location.name }} </label>
-        </div>
-        <span>picked: {{ pickedName }} </span>
+        <h4>{{ pickedName }}</h4>
         <categoryGraph :chart-data="datacollection" />
       </div>
     </div>
@@ -66,10 +58,10 @@ export default {
           query: this.userLoc,
         },
       });
-      this.pickedName = apiData.data.results[0].name;
+      this.pickedName = apiData.data[0]["formatted_address"];
       this.searchLoc = [
-        apiData.data.results[0].lat,
-        apiData.data.results[0].lon,
+        apiData.data[0].geometry.location.lat,
+        apiData.data[0].geometry.location.lng,
       ];
       let result = await axios.get("/express/radius", {
         params: {
@@ -237,6 +229,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
