@@ -85,9 +85,6 @@ app.get("/express/radius", async (req, res) => {
   res.send(result);
 });
 
-app.get("/api/hello", (req, res) => {
-  res.send("jack");
-});
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
 app.get("/", (req, res) => {
