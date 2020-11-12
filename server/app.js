@@ -71,7 +71,6 @@ app.get("/express/leaderboard", async (req, res) => {
     }
   });
   const rankList = Object.entries(recList).sort(([, a], [, b]) => b - a);
-  console.log(rankList);
   res.send(rankList.slice(0, 9));
 });
 
