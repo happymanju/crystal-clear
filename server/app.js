@@ -46,7 +46,18 @@ app.get("/express/radius", async (req, res) => {
     res.send(result);
 })
 
-
+app.get("/googleLoc", async (req, res) => {
+    const location = req.query.query;
+    const result = await axios.get(
+        "https://www.meteoblue.com/de/server/search/query3",
+        {
+            params: {
+                query: location
+            },
+        }
+    ).catch(err => console.error("google api error", err));
+    res.send(result.data);
+})
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
 app.get("/", (req, res) => {
