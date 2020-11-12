@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server",
+    "start": "yarn knex migrate:latest && yarn knex seed:run && node server",
     "migrate": "yarn knex migrate:latest",
     "seed": "yarn knex seed:run",
     "dev:client": "vue-cli-service serve",
