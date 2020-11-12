@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node server",
+    "migrate": "yarn knex migrate:latest",
+    "seed": "yarn knex seed:run",
     "dev:client": "vue-cli-service serve",
-    "dev:server": "nodemon index",
+    "dev:server": "nodemon server",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
