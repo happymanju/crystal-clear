@@ -41,28 +41,52 @@ app.get("/express/taps", async (req, res) => {
     res.send(result);
 });
 
+app.get("/express/totalrifills", async (req, res) => {
+  const result = await db.select().table("refills");
+  let total = result
+    .map((record) => Number(record.amount))
+    .reduce((a, b) => a + b);
+  total = (total / 1000).toFixed(0);
+  res.send(String(total));
+});
+
 app.get("/express/leaderboard", async (req, res) => {
-    const result = await db.select().table("refills");
-    const recList = {};
-    result.forEach((record) => {
-        if (Object.keys(recList).includes(record.user_id)) {
-            recList[record.user_id] += Number(record.amount) / 1000;
-        } else {
-            recList[record.user_id] = Number(record.amount) / 1000;
-        }
-    });
-    const rankList = Object.entries(recList).sort(([, a], [, b]) => b - a);
-    res.send(rankList.slice(0, 9));
+  const result = await db.select().table("refills");
+  const recList = {};
+  result.forEach((record) => {
+    if (Object.keys(recList).includes(record.user_id)) {
+      recList[record.user_id] += Number(record.amount) / 1000;
+    } else {
+      recList[record.user_id] = Number(record.amount) / 1000;
+    }
+  });
+  const rankList = Object.entries(recList).sort(([, a], [, b]) => b - a);
+  const names = [
+    "Yuki",
+    "Ryu",
+    "Michael",
+    "Kenji",
+    "Mizutaro",
+    "Justin",
+    "Taku",
+    "Su",
+    "Toru",
+    "Mika",
+  ];
+  for (let i = 0; i < names.length; i++) {
+    rankList[i][0] = names[i];
+  }
+  res.send(rankList.slice(0, 9));
 });
 
 app.get("/express/radius", async (req, res) => {
-    const query = req.query;
-    let coordinate = {};
-    for (let key in query) {
-        coordinate[key] = Number(query[key]);
-    }
-    const result = await fetchTaps(coordinate);
-    res.send(result);
+  const query = req.query;
+  let coordinate = {};
+  for (let key in query) {
+    coordinate[key] = Number(query[key]);
+  }
+  const result = await fetchTaps(coordinate);
+  res.send(result);
 })
 
 app.get("/googleLoc", async (req, res) => {
@@ -77,16 +101,6 @@ app.get("/googleLoc", async (req, res) => {
     }).catch(err => console.error("google api error", err));
     res.send(gresponse.data.results);
 })
-app.get("/express/radius", async (req, res) => {
-    const query = req.query;
-    let coordinate = {};
-    for (let key in query) {
-        coordinate[key] = Number(query[key]);
-    }
-    const result = await fetchTaps(coordinate);
-    res.send(result);
-});
-
 
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
