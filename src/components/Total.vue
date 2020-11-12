@@ -44,6 +44,7 @@ export default {
     categories: { "0": 0, "1": 0, "2": 9, "3": 0, "4": 0, "5": 0 },
     picked: "Shibuya",
     userLoc: "Shibuya",
+
     pickedName: "Shibuya",
     searchName: "shibuya",
     searchLoc: [],
@@ -237,22 +238,5 @@ export default {
 </script>
 
 <style>
-.total-container {
-  background-color: grey;
-}
-.total-wrapper {
-  display: grid;
-  background-color: white;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
-  align-items: center;
-  grid-gap: 20px;
-}
-.total-item {
-  flex-direction: column;
-  display: flex;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 10px;
-  justify-content: center;
-}
+
 </style>
