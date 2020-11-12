@@ -29,7 +29,7 @@ exports.seed = function (knex) {
             date
           });
         }
-        const test = newRefills.slice(0, 13107);
+        const test = newRefills.slice(0, 9000);
         return knex("refills").insert(test);
       } catch (err) {
         console.error("Error seeding records:\n", err.message)
