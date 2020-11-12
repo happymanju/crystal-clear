@@ -3,7 +3,7 @@ require("dotenv").config();
 
 module.exports = {
   client: 'pg',
-  connection: {
+  connection: process.env.DATABASE_URL || {
     host: process.env.LOCAL_HOST,
     port: process.env.LOCAL_PORT,
     user: process.env.LOCAL_USERNAME,
