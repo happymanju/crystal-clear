@@ -1,28 +1,14 @@
 <script>
-import { Bar } from "vue-chartjs";
+import { Bar, mixins } from "vue-chartjs";
+const { reactiveProp } = mixins;
+
 export default {
-  name: "CategoryGraph",
   extends: Bar,
-  data: () => ({}),
+  name: "CategoryGraph",
+  mixins: [reactiveProp],
+
   mounted() {
-    // Overwriting base render method with actual data.
-    this.renderChart({
-      labels: [
-        "Unverified",
-        "Natural Springs",
-        "Public",
-        "Open Maps",
-        "Private",
-        "Business",
-      ],
-      datasets: [
-        {
-          label: "Spots Around Akasaka",
-          backgroundColor: "Blue",
-          data: [40, 20, 12, 80, 20, 20],
-        },
-      ],
-    });
+    this.renderChart(this.chartData);
   },
 };
 </script>
