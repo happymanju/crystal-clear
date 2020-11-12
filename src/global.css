@@ -1,11 +1,10 @@
 body,
 html {
-  background-color: rgba(228, 241, 254, 1);
+  background-color: white;
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  padding: 10px;
-  padding-top: 10px;
+  text-align: center;
 }
 
 #app {
@@ -25,11 +24,37 @@ html {
 .nav{
     color:rgb(0, 0, 114);
     display: grid;
+    height: 80px;
     background-color: rgba(89, 171, 227, 1);
     grid-template-columns: 1fr;
     justify-content: center;
     display: flex;
     grid-gap: 20px;
+}
+
+.footer {
+    color:rgb(0, 0, 114);
+    padding-top: 30px;
+    display: grid;
+    height: 60px;
+    background-color: rgba(89, 171, 227, 1);
+    grid-template-columns: 1fr;
+    justify-content: center;
+    display: flex;
+    grid-gap: 20px;
+}
+
+#logo-name {
+    background-color: white;
+    font-size: 50px;
+    margin-top: 40px;
+    font-style: fantasy, cursive;
+}
+
+.introduction-text {
+    width: 80%;
+    background-color: white;
+    text-align: center;
 }
 
 .total-container {
@@ -40,8 +65,8 @@ html {
 .total-wrapper {
     display: grid;
     justify-content: space-around;
-    background-color:  rgb(166, 210, 253);
     grid-template-columns: repeat(auto-fit,  minmax(300px, 1fr));
+    background-color: white;
     grid-gap: 20px;
     padding: 10px;
 }
@@ -76,7 +101,7 @@ html {
 
 .weekly-wrapper {
     display: grid;
-    background-color:  rgb(166, 210, 253);
+    background-color: white;
     grid-template-columns: repeat(auto-fit,  minmax(300px, 1fr));
     grid-gap: 20px;
     padding: 10px;
@@ -90,3 +115,4 @@ html {
     border-radius: 5px;
     padding: 50px;
 }
+
