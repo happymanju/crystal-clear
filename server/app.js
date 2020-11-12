@@ -56,6 +56,28 @@ app.get("/express/leaderboard", async (req, res) => {
 });
 
 app.get("/express/radius", async (req, res) => {
+    const query = req.query;
+    let coordinate = {};
+    for (let key in query) {
+        coordinate[key] = Number(query[key]);
+    }
+    const result = await fetchTaps(coordinate);
+    res.send(result);
+})
+
+app.get("/googleLoc", async (req, res) => {
+    const location = req.query.query;
+    const result = await axios.get(
+        "https://www.meteoblue.com/de/server/search/query3",
+        {
+            params: {
+                query: location
+            },
+        }
+    ).catch(err => console.error("google api error", err));
+    res.send(result.data);
+})
+
   const query = req.query;
   let coordinate = {};
   for (let key in query) {
@@ -64,6 +86,7 @@ app.get("/express/radius", async (req, res) => {
   const result = await fetchTaps(coordinate);
   res.send(result);
 });
+
 
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
