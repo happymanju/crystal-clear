@@ -1,8 +1,7 @@
 <template>
   <div class="recentTaps">
-    <div>In the last {{ days }} days:</div>
     <div id="tapsNum">{{ tapsNum.count }}</div>
-    <div>new spots added</div>
+    <div>new spots added <br />in the last {{ days }} days</div>
   </div>
 </template>
 
@@ -30,5 +29,7 @@ export default {
 }
 #tapsNum {
   font-size: 50px;
+  color: darkblue;
+  font-weight: bold;
 }
 </style>
