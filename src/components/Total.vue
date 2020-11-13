@@ -3,7 +3,7 @@
     <div class="wrapper">
       <line-chart class="item"></line-chart>
       <totalCompare class="item" />
-      <div class="item">
+      <div class="item category-item">
         <input
           v-model="userLoc"
           placeholder="Enter Location"
@@ -11,7 +11,7 @@
         />
         <button v-on:click="getLocationcoord">SEARCH</button>
         <h4>{{ pickedName }}</h4>
-        <categoryGraph :chart-data="datacollection" />
+        <categoryGraph class="category-graph" :chart-data="datacollection" />
       </div>
     </div>
   </div>
@@ -33,15 +33,10 @@ export default {
     categories: { "0": 0, "1": 0, "2": 9, "3": 0, "4": 0, "5": 0 },
     picked: "Shibuya",
     userLoc: "Shibuya",
-
-    pickedName: "Shibuya",
+    pickedName: "Shibuya City, Tokyo",
     searchName: "shibuya",
     searchLoc: [],
-    locations: [
-      { name: "Shibuya", coords: [35.677427, 139.697063] },
-      { name: "Minato", coords: [35.6111, 139.728501] },
-      { name: "Shimokitazawa", coords: [35.666203, 139.669767] },
-    ],
+    locations: [{ name: "Shibuya", coords: [35.677427, 139.697063] }],
     datacollection: null,
   }),
 
@@ -100,6 +95,7 @@ export default {
             ],
             borderColor: "rgba(58, 83, 155, 1)",
             borderWidth: 1,
+            circumference: "100px",
             data: [
               this.categories["0"],
               this.categories["1"],
