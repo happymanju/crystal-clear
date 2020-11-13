@@ -1,28 +1,13 @@
 <template>
- <div class = "nav"></div>
+  <div class="nav"></div>
 </template>
 
 <script>
-
+//import photo from "../assets/mymizulogo.png";
 export default {
-  name: 'Navbar',
-
-}
+  name: "Navbar",
+  data: () => ({
+    photo: photo,
+  }),
+};
 </script>
-
-
-
-<style>
-/* .nav{
-color:rgb(0, 0, 114);
-display: grid;
-background-color: cornflowerblue;
-grid-template-columns: 1fr;
-justify-content: center;
-display: flex;
-grid-gap: 20px;
-} */
-
-
-
-</style>

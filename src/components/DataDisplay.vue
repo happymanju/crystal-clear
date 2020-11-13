@@ -22,14 +22,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.recentTaps {
-  text-align: center;
-}
-#tapsNum {
-  font-size: 50px;
-  color: darkblue;
-  font-weight: bold;
-}
-</style>
