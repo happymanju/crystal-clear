@@ -1,7 +1,7 @@
 <template>
   <div class="leaderboard">
     <h3 class="total-refills">
-      Users have saves
+      Users have saved
       <div style="text-align:center;">
         <strong class="strongNum">{{ totalRifill }}</strong>
         liters
