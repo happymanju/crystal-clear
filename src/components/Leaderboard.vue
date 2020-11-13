@@ -3,7 +3,7 @@
     <h3 class="total-refills">
       Users have saves
       <div style="text-align:center;">
-        <strong style="color:#3F6A88;font-size:50px;">{{ totalRifill }}</strong>
+        <strong class="strongNum">{{ totalRifill }}</strong>
         liters
       </div>
       of water in 2020.
