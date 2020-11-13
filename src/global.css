@@ -23,7 +23,7 @@ html {
   font-size: 90px;
   margin-top: 40px;
   margin-bottom: 20px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Dancing Script", cursive;
 }
 
 .introduction-box {
@@ -34,10 +34,10 @@ html {
 #intro-text {
   font-size: 20px;
   display: inline-block;
-  width: 300px;
+  max-width: 500px;
   margin-top: 0;
   padding-bottom: 50px;
-  text-align: left;
+  text-align: center;
 }
 
 /* --------DATA ROW AND ITEM STYLES-------- */
@@ -106,13 +106,14 @@ html {
   text-align: left;
 }
 
-.lederboardTitle {
+.top-users {
   margin-bottom: 0;
 }
 /* --------LEADERBOARD-------- */
 
 /* --------FOOTER-------- */
 .footer {
+  font-size: 12px;
   color: #e5e5e7;
   padding-top: 30px;
   display: grid;
@@ -122,4 +123,10 @@ html {
   justify-content: center;
   display: flex;
   grid-gap: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+  #intro-text {
+    width: 300px;
+  }
 }

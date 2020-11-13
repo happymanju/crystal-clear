@@ -1,6 +1,6 @@
 <template>
   <div class="leaderboard">
-    <h3 class="lederboardTitle">
+    <h3 class="total-refills">
       Users have saves
       <div style="text-align:center;">
         <strong style="color:#3F6A88;font-size:50px;">{{ totalRifill }}</strong>
@@ -8,7 +8,7 @@
       </div>
       of water in 2020.
     </h3>
-    <h3 class="lederboardTitle">Top Users</h3>
+    <h3 class="top-users">Top Users</h3>
     <ol class="topUserList">
       <li v-for="item in rankArr" :key="item[0]">
         <strong style="color:#2E98D1;font-size:25px;">{{ item[0] }}</strong>
