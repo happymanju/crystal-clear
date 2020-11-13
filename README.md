@@ -5,6 +5,8 @@ This was created during our time as students at [Code Chrysalis](https://www.cod
 ## About
 [This app](https://mizu-view.herokuapp.com/) tells the story of mymizu's impact in Japan and the world through stunning real-time dynamic, visualizations. 
 
+Lovingly built by Nina, Jack, Yoshi, and Michael.
+
 **current features:**
 
 - Find what types of drinking sources you have in your locale
