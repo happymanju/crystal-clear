@@ -1,6 +1,6 @@
 <template>
   <div class="recentTaps">
-    <div id="tapsNum">{{ tapsNum.count }}</div>
+    <div class="strongNum">{{ tapsNum.count }}</div>
     <div>new spots added <br />in the last {{ days }} days</div>
   </div>
 </template>

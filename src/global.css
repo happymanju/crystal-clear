@@ -88,7 +88,7 @@ html {
   flex-direction: column;
 }
 
-#tapsNum {
+.strongNum {
   font-size: 50px;
   color: #3f6a88;
   font-weight: bold;
