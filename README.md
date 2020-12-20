@@ -21,7 +21,7 @@ Lovingly built by Nina, Jack, Yoshi, and Michael.
 
 ## Technologies
 
-The app was built with Vue, postgres, nodeJs, Knex, mymizuAPI and GoogleMaps Geocoder API.
+The app was built with VueJS, postgres, nodeJS, express, Knex, mymizu API and Google Maps Geocoder API.
 
 ## Project setup
 ```
